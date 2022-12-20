@@ -5,10 +5,16 @@ import 'package:flutter_bloc_conversor/theme/app_theme.dart';
 class CustomDropdownField extends StatelessWidget {
   final List<Moneda> monedasList;
   final String hint;
+  final String inputProperty;
+  final Map<String, dynamic> inputValue;
 
-  const CustomDropdownField(
-      {Key? key, required this.monedasList, required this.hint})
-      : super(key: key);
+  CustomDropdownField({
+    Key? key,
+    required this.monedasList,
+    required this.hint,
+    required this.inputProperty,
+    required this.inputValue,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +40,10 @@ class CustomDropdownField extends StatelessWidget {
                     color: Color.fromRGBO(39, 81, 91, 1),
                   ),
                   hint: Center(child: Text(hint)),
-                  onChanged: (Moneda? newValue) {
-                    print(newValue!.code);
+                  onChanged: (value) {
+                    inputValue[inputProperty] = value!.code;
+                    final valor = value!.code;
+                    print(valor);
                   },
                   items: monedasList.map((item) {
                     return DropdownMenuItem<Moneda>(

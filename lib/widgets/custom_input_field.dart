@@ -9,7 +9,7 @@ class CustomInputField extends StatelessWidget {
   final TextInputType? keyboardType;
   final bool obscureText;
   final String inputProperty;
-  final Map<String, int> inputValue;
+  final Map<String, dynamic> inputValue;
 
   const CustomInputField({
     Key? key,
