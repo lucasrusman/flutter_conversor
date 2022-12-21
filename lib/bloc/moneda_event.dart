@@ -1,12 +1,6 @@
 part of 'moneda_bloc.dart';
 
-@immutable
-abstract class MonedaEvent extends Equatable {
-  const MonedaEvent();
+@freezed
+abstract class MonedaEvent with _$MonedaEvent {
+  const factory MonedaEvent.loadMonedaEvent() = LoadMonedaEvent;
 }
-
-class LoadMonedaEvent extends MonedaEvent {
-  @override
-  List<Object> get props => [];
-}
- 
